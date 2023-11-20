@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const pageTitle = "My Astro Learning Blog";
+const allPosts = await getCollection("posts");
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>W tym miejscu będę pisać o swojej przygodzie z Astro.</p>
+  <ul>
+    {allPosts.map((post) => <BlogPost url={getRelativeLocaleUrl('pl', `/posts/${post.slug}/`)} title={post.data.title} />)}
+  </ul>
+</BaseLayout>
