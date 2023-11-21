@@ -1,8 +1,3 @@
-html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
-}
-
 body {
   margin: 0 auto;
   width: 100%;
@@ -80,13 +75,4 @@ h1 {
   .hamburger {
     display: none;
   }
-}
-
-html.dark {
-  background-color: #0d0950;
-  color: #fff;
-}
-
-.dark .nav-links a {
-  color: #fff;
 }

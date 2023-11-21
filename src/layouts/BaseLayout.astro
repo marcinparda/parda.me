@@ -6,7 +6,7 @@ import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -15,7 +15,7 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
     <ViewTransitions />
   </head>
-  <body>
+  <body class="w-full h-full bg-slate-50 text-gray-800 dark:bg-gray-900 dark:text-stone-100">
     <Header />
     <h1>{pageTitle}</h1>
     <slot />
