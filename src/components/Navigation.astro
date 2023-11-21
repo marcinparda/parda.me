@@ -1,13 +1,13 @@
 ---
 import NavigationLink from "./NavigationLink.astro";
 const links = [
-  { href: "/", text: "Home" },
+  { href: "/home", text: "Home" },
   { href: "/about/", text: "About" },
   { href: "/blog/", text: "Blog" },
   { href: "/tags/", text: "Tags" },
 ];
 ---
 
-<div class="nav-links">
+<nav class="flex">
   {links.map((link) => <NavigationLink href={link.href} text={link.text} />)}
-</div>
+</nav>

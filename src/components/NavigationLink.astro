@@ -1,14 +1,20 @@
 ---
 const { href, text } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname;
+const isCurrent = pathname.startsWith(href);
 ---
 
-<a href={href} class="relative">
+<a
+  href={href}
+  class={`relative py-1 px-2 font-bold  ${
+    isCurrent ? "text-gray-900" : "text-gray-600"
+  } hover:text-gray-900 `}
+>
   {text}
   {
-    pathname === href && (
+    isCurrent && (
       <div
-        class="bg-slate-400 w-full h-1 absolute left-0 bottom-0"
+        class="bg-slate-200 w-full h-full -z-10 absolute left-0 bottom-0 rounded-md"
         transition:name="hover"
       />
     )
