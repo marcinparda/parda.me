@@ -1,0 +1,8 @@
+---
+const {href, text} = Astro.props;
+const pathname = new URL(Astro.request.url).pathname;
+---
+<a href={href} class="relative">
+  {text}
+  {pathname === href && <div class="bg-slate-400 w-full h-1 absolute left-0 bottom-0" transition:name="hover"/>}
+</a>

@@ -1,8 +1,13 @@
 ---
+import NavigationLink from "./NavigationLink.astro"
+const links = [
+  { href: "/", text: "Home" },
+  { href: "/about/", text: "About" },
+  { href: "/blog/", text: "Blog" },
+  { href: "/tags/", text: "Tags" },
+];
+
 ---
 <div class="nav-links">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-  <a href="/tags/">Tags</a>
+  {links.map(link => <NavigationLink href={link.href} text={link.text} />)}
 </div>

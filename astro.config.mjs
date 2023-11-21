@@ -1,13 +1,14 @@
 import { defineConfig } from 'astro/config';
-
 import preact from '@astrojs/preact';
+
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [preact()],
+  integrations: [preact(), tailwind()],
   prefetch: {
-    prefetchAll: true,
+    prefetchAll: true
   },
   experimental: {
     i18n: {
@@ -15,8 +16,8 @@ export default defineConfig({
       defaultLocale: 'en',
       routingStrategy: 'prefix-other-locales',
       fallback: {
-        pl: 'en',
-      },
-    },
-  },
+        pl: 'en'
+      }
+    }
+  }
 });
