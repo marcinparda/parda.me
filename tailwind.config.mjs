@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Lato", "sans-serif"],
+        sans: ["Raleway Variable", "sans-serif"],
+        comfortaa: ["Comfortaa Variable"],
       },
     },
   },

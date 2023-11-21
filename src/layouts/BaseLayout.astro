@@ -1,5 +1,6 @@
 ---
-import "@fontsource/lato";
+import "@fontsource-variable/raleway";
+import "@fontsource-variable/comfortaa";
 import { ViewTransitions } from "astro:transitions";
 import Navigation from "../components/Navigation.astro";
 const { pageTitle } = Astro.props;
@@ -15,10 +16,16 @@ const { pageTitle } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="bg-slate-50 text-gray-800 dark:bg-gray-900 dark:text-stone-100 px-8 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
+    class="pt-12 bg-slate-50 text-gray-800 dark:bg-gray-900 dark:text-stone-100 px-8 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
   >
-    <div class="flex flex-col md:flex-row pt-32">
-      <Navigation />
+    <h1 class="text-5xl font-bold pb-11 hidden md:block font-comfortaa">
+      parda.me
+    </h1>
+    <div class="flex flex-col md:flex-row">
+      <h1 class="text-4xl font-bold pb-8 md:hidden font-comfortaa">parda.me</h1>
+      <div>
+        <Navigation />
+      </div>
       <div>
         <h1>{pageTitle}</h1>
         <slot />

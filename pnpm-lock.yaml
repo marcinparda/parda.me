@@ -11,6 +11,12 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.0.2
     version: 5.0.2(astro@3.5.5)(tailwindcss@3.3.5)
+  '@fontsource-variable/comfortaa':
+    specifier: ^5.0.17
+    version: 5.0.17
+  '@fontsource-variable/raleway':
+    specifier: ^5.0.16
+    version: 5.0.16
   '@fontsource/lato':
     specifier: ^5.0.17
     version: 5.0.17
@@ -746,6 +752,14 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource-variable/comfortaa@5.0.17:
+    resolution: {integrity: sha512-7kqvDL/nigE8O+TNbor/ouSe/xJhhTOIzYaLA+8hU1XTbMvOY+ksMxZwKEWumRSsIabOXzBjcdM2bWMctlua4g==}
+    dev: false
+
+  /@fontsource-variable/raleway@5.0.16:
+    resolution: {integrity: sha512-so9XnyYFX22qNFn6f70ZherFZwhkJYp58R7bS7ZLuXUefWLyhualoowvujDANoMtMPqT85nMrzOwoK4yPG0Crw==}
+    dev: false
 
   /@fontsource/lato@5.0.17:
     resolution: {integrity: sha512-K9znoLAeUsm4tqp6zYv/oXBxhVDUeYPjRz6Yc7rKyBOKKOS9eXxkEcxD8pT9klnvCky4/pYXKJ9lab01LXYSEA==}

@@ -15,7 +15,8 @@
   "dependencies": {
     "@astrojs/rss": "^3.0.0",
     "@astrojs/tailwind": "^5.0.2",
-    "@fontsource/lato": "^5.0.17",
+    "@fontsource-variable/comfortaa": "^5.0.17",
+    "@fontsource-variable/raleway": "^5.0.16",
     "astro": "^3.5.5",
     "tailwindcss": "^3.3.5"
   },
