@@ -1,13 +1,13 @@
 ---
 import NavigationLink from "./NavigationLink.astro";
 const links = [
-  { href: "/home", text: "Home" },
-  { href: "/about/", text: "About" },
-  { href: "/blog/", text: "Blog" },
-  { href: "/tags/", text: "Tags" },
+  { href: "/about", text: "About" },
+  { href: "/work", text: "Work" },
+  { href: "/blog", text: "Blog" },
 ];
 ---
 
-<nav class="flex">
+<nav class="inline-flex md:flex-col md:pr-12 gap-3 pb-8 md:pb-0">
+  <span class="text-xl text-center font-bold">parda.me</span>
   {links.map((link) => <NavigationLink href={link.href} text={link.text} />)}
 </nav>

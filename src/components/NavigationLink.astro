@@ -4,13 +4,17 @@ const pathname = new URL(Astro.request.url).pathname;
 const isCurrent = pathname.startsWith(href);
 ---
 
-<a
-  href={href}
-  class={`relative py-1 px-2 font-bold  ${
-    isCurrent ? "text-gray-900" : "text-gray-600"
-  } hover:text-gray-900 `}
->
-  {text}
+<div class="relative py-2 px-4">
+  <a
+    href={href}
+    class={`font-bold ${
+      isCurrent ? "text-gray-900" : "text-gray-600"
+    } hover:text-gray-900`}
+    transition:animate="none"
+  >
+    <span class="text-2xl" transition:animate="none">{text}</span>
+  </a>
+
   {
     isCurrent && (
       <div
@@ -19,4 +23,4 @@ const isCurrent = pathname.startsWith(href);
       />
     )
   }
-</a>
+</div>
