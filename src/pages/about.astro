@@ -3,5 +3,68 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout pageTitle={"About me"}>
-  <h2>Big fan of lofi and content heavy websites.</h2>
+  <main>
+    <section class="pb-12">
+      <div class="flex flex-col items-center pb-10">
+        <img
+          class="w-64 h-64 border-2 rounded-full border-blue-200 mb-5"
+          alt="Portrait of Marcin Parda on blurry forest background."
+          src="public/face.png"
+        />
+        <header class="flex flex-col items-center">
+          <h1 class="text-5xl font-bold pb-4">Marcin Parda</h1>
+          <h2 class="text-2xl text-gray-600">
+            Senior Frontend Developer at EY GDS
+          </h2>
+        </header>
+      </div>
+      <p class="pb-3">
+        Code mentor. IT meetings attender, lecturer. Programming blogger. Advent
+        of Code & hackatons participant. On the way to becoming a fullstack.
+      </p>
+      <p>
+        I am an optimistic minimalist who found happiness in learning new
+        things. A relaxed and fun atmosphere is important to me when interacting
+        with people. I enjoy confronting my thoughts with others. In my free
+        time I play football, boardgames and develop AI powered apps.
+      </p>
+    </section>
+    <section class="flex pb-12">
+      <div class="w-1/2">
+        <h2 class="text-2xl text-gray-600 pb-4">My finished projects</h2>
+        <ul>
+          <li class="pb-3">
+            <a href="" class="underline text-lg">This blog</a>
+            <a href="" class="underline text-lg">Github icon</a>
+            <p class="text-gray-600">
+              This is a blog I created to share my knowledge and experience with
+              others.
+            </p>
+          </li>
+          <li class="pb-3">
+            <a href="" class="underline text-lg">This blog</a>
+            <a href="" class="underline text-lg">Github icon</a>
+            <p class="text-gray-600">
+              This is a blog I created to share my knowledge and experience with
+              others.
+            </p>
+          </li>
+          <li class="pb-3">
+            <a href="" class="underline text-lg">This blog</a>
+            <a href="" class="underline text-lg">Github icon</a>
+            <p class="text-gray-600">
+              This is a blog I created to share my knowledge and experience with
+              others.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl text-gray-600">My WIP projects</h2>
+      </div>
+    </section>
+    <section>
+      <h2 class="text-2xl text-gray-600">My recent posts</h2>
+    </section>
+  </main>
 </BaseLayout>
