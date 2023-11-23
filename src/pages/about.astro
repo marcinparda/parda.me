@@ -1,4 +1,5 @@
 ---
+import ProjectItem from "../components/ProjectItem.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 interface Project {
@@ -60,29 +61,7 @@ const finishedProjects: Project[] = [
           <ul>
             {
               finishedProjects.map((project) => (
-                <li class="pb-3">
-                  <div class="flex gap-2">
-                    <a
-                      href={project.liveUrl}
-                      class="underline text-lg"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      {project.name}
-                    </a>
-                    <a
-                      href={project.codeUrl}
-                      class="underline text-lg"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <img src="public/github.svg" alt="Github logo" />
-                    </a>
-                  </div>
-                  <p class="text-gray-600 text-justify">
-                    {project.description}
-                  </p>
-                </li>
+                <ProjectItem project={project} />
               ))
             }
           </ul>
@@ -92,29 +71,7 @@ const finishedProjects: Project[] = [
           <ul>
             {
               finishedProjects.map((project) => (
-                <li class="pb-3">
-                  <div class="flex gap-2">
-                    <a
-                      href={project.liveUrl}
-                      class="underline text-lg"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      {project.name}
-                    </a>
-                    <a
-                      href={project.codeUrl}
-                      class="underline text-lg"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <img src="public/github.svg" alt="Github logo" />
-                    </a>
-                  </div>
-                  <p class="text-gray-600 text-justify">
-                    {project.description}
-                  </p>
-                </li>
+                <ProjectItem project={project} />
               ))
             }
           </ul>
