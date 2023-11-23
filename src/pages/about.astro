@@ -1,5 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Project {
+  name: string;
+  description: string;
+  liveUrl: string;
+  codeUrl: string;
+}
+
+const finishedProjects: Project[] = [
+  {
+    name: "Firebase superchat",
+    description:
+      "Chat where all the users can talk to each other. It's possible to login with Google account.",
+    liveUrl: "https://superchat-cc2d4.web.app/",
+    codeUrl: "https://github.com/MarcinParda/firebase-superchat",
+  },
+  {
+    name: "Firebase superchat",
+    description:
+      "Chat where all the users can talk to each other. It's possible to login with Google account.",
+    liveUrl: "https://superchat-cc2d4.web.app/",
+    codeUrl: "https://github.com/MarcinParda/firebase-superchat",
+  },
+];
 ---
 
 <BaseLayout pageTitle={"About me"}>
@@ -18,49 +42,83 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </h2>
         </header>
       </div>
-      <p class="pb-3">
+      <p class="pb-3 text-justify">
         Code mentor. IT meetings attender, lecturer. Programming blogger. Advent
         of Code & hackatons participant. On the way to becoming a fullstack.
       </p>
-      <p>
+      <p class="text-justify">
         I am an optimistic minimalist who found happiness in learning new
         things. A relaxed and fun atmosphere is important to me when interacting
         with people. I enjoy confronting my thoughts with others. In my free
         time I play football, boardgames and develop AI powered apps.
       </p>
     </section>
-    <section class="flex pb-12">
-      <div class="w-1/2">
-        <h2 class="text-2xl text-gray-600 pb-4">My finished projects</h2>
-        <ul>
-          <li class="pb-3">
-            <a href="" class="underline text-lg">This blog</a>
-            <a href="" class="underline text-lg">Github icon</a>
-            <p class="text-gray-600">
-              This is a blog I created to share my knowledge and experience with
-              others.
-            </p>
-          </li>
-          <li class="pb-3">
-            <a href="" class="underline text-lg">This blog</a>
-            <a href="" class="underline text-lg">Github icon</a>
-            <p class="text-gray-600">
-              This is a blog I created to share my knowledge and experience with
-              others.
-            </p>
-          </li>
-          <li class="pb-3">
-            <a href="" class="underline text-lg">This blog</a>
-            <a href="" class="underline text-lg">Github icon</a>
-            <p class="text-gray-600">
-              This is a blog I created to share my knowledge and experience with
-              others.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="text-2xl text-gray-600">My WIP projects</h2>
+    <section class="pb-8">
+      <div class="flex flex-col gap-8 lg:flex-row">
+        <div class="lg:w-1/2">
+          <h2 class="text-2xl text-gray-600 pb-4">My finished projects</h2>
+          <ul>
+            {
+              finishedProjects.map((project) => (
+                <li class="pb-3">
+                  <div class="flex gap-2">
+                    <a
+                      href={project.liveUrl}
+                      class="underline text-lg"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {project.name}
+                    </a>
+                    <a
+                      href={project.codeUrl}
+                      class="underline text-lg"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <img src="public/github.svg" alt="Github logo" />
+                    </a>
+                  </div>
+                  <p class="text-gray-600 text-justify">
+                    {project.description}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="lg:w-1/2">
+          <h2 class="text-2xl text-gray-600 pb-4">My WIP projects</h2>
+          <ul>
+            {
+              finishedProjects.map((project) => (
+                <li class="pb-3">
+                  <div class="flex gap-2">
+                    <a
+                      href={project.liveUrl}
+                      class="underline text-lg"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {project.name}
+                    </a>
+                    <a
+                      href={project.codeUrl}
+                      class="underline text-lg"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <img src="public/github.svg" alt="Github logo" />
+                    </a>
+                  </div>
+                  <p class="text-gray-600 text-justify">
+                    {project.description}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </section>
     <section>
