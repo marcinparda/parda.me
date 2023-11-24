@@ -2,20 +2,26 @@
 import ProjectItem from "../components/ProjectItem.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-interface Project {
+export interface Project {
   name: string;
   description: string;
-  liveUrl: string;
+  liveUrl?: string;
   codeUrl: string;
 }
 
 const finishedProjects: Project[] = [
   {
-    name: "Firebase superchat",
+    name: "My previous blog",
     description:
-      "Chat where all the users can talk to each other. It's possible to login with Google account.",
-    liveUrl: "https://superchat-cc2d4.web.app/",
-    codeUrl: "https://github.com/MarcinParda/firebase-superchat",
+      "My previous digital garden. It was built with Next.js and was quite similar to this one.",
+    liveUrl: "https://marcinparda.vercel.app/",
+    codeUrl: "https://github.com/MarcinParda/marcinparda-blog",
+  },
+  {
+    name: "parda.me",
+    description:
+      "Page that you are currently on. It's built with Astro and TailwindCSS.",
+    codeUrl: "https://github.com/MarcinParda/parda.me",
   },
   {
     name: "Firebase superchat",
@@ -23,6 +29,15 @@ const finishedProjects: Project[] = [
       "Chat where all the users can talk to each other. It's possible to login with Google account.",
     liveUrl: "https://superchat-cc2d4.web.app/",
     codeUrl: "https://github.com/MarcinParda/firebase-superchat",
+  },
+];
+
+const wipProjects: Project[] = [
+  {
+    name: "IT flashcards",
+    description:
+      "Flashcards Anki-like app for IT people. It's powered with AI and built with Nx, Nest.js & Next.js.",
+    codeUrl: "https://github.com/MarcinParda/it-flashcards",
   },
 ];
 ---
@@ -69,11 +84,7 @@ const finishedProjects: Project[] = [
         <div class="lg:w-1/2">
           <h2 class="text-2xl text-gray-600 pb-4">My WIP projects</h2>
           <ul>
-            {
-              finishedProjects.map((project) => (
-                <ProjectItem project={project} />
-              ))
-            }
+            {wipProjects.map((project) => <ProjectItem project={project} />)}
           </ul>
         </div>
       </div>
