@@ -1,0 +1,31 @@
+---
+import { recommendations } from "../data/recommendations";
+---
+
+<section class="pb-12">
+  <h2 class="text-2xl text-gray-600 pb-8">Recommendations</h2>
+  <div class="flex flex-col gap-12">
+    {
+      recommendations.map((recommendation) => {
+        const { recommender, recommendationText } = recommendation;
+        const { name, title, linkedinProfileUrl, imageSource } = recommender;
+        return (
+          <div>
+            <div class="flex items-center gap-2 pb-4">
+              <img
+                class="w-16 h-16 border-2 rounded-full border-yellow-200"
+                src={imageSource}
+                alt={`Portrait of a ${name}`}
+              />
+              <div class="flex flex-col items-center pr-3">
+                <p class="text-xl font-bold">{name}</p>
+                <p class="text-gray-600">{title}</p>
+              </div>
+            </div>
+            <p class="text-justify">{recommendationText}</p>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
