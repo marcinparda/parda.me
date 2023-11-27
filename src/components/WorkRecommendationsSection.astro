@@ -1,5 +1,6 @@
 ---
 import { recommendations } from "../data/recommendations";
+import Link from "./Link.astro";
 ---
 
 <section class="pb-12">
@@ -11,15 +12,17 @@ import { recommendations } from "../data/recommendations";
         const { name, title, linkedinProfileUrl, imageSource } = recommender;
         return (
           <div>
-            <div class="flex items-center gap-2 pb-4">
+            <div class="flex items-center gap-3 pb-4">
               <img
                 class="w-16 h-16 border-2 rounded-full border-yellow-200"
                 src={imageSource}
                 alt={`Portrait of a ${name}`}
               />
-              <div class="flex flex-col items-center pr-3">
-                <p class="text-xl font-bold">{name}</p>
-                <p class="text-gray-600">{title}</p>
+              <div class="flex flex-col">
+                <Link href={linkedinProfileUrl} rel="noopener noreferrer">
+                  <span class="text-xl font-bold">{name}</span>
+                </Link>
+                <span class="text-gray-600">{title}</span>
               </div>
             </div>
             <p class="text-justify">{recommendationText}</p>
