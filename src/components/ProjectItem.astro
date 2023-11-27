@@ -1,5 +1,5 @@
 ---
-import type { Project } from "../pages/about.astro";
+import type { Project } from "../data/projects";
 import Link from "./Link.astro";
 interface Props {
   project: Project;
@@ -12,7 +12,7 @@ const { project } = Astro.props;
     {
       project.liveUrl ? (
         <Link href={project.liveUrl} rel="noopener noreferrer" target="_blank">
-          {project.name}
+          <span class="text-xl">{project.name}</span>
         </Link>
       ) : (
         <span class="text-xl">{project.name}</span>

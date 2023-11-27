@@ -1,46 +1,8 @@
 ---
+import Link from "../components/Link.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-export interface Project {
-  name: string;
-  description: string;
-  liveUrl?: string;
-  codeUrl: string;
-}
-
-const finishedProjects: Project[] = [
-  {
-    name: "My previous blog",
-    description:
-      "My previous digital garden. It was built with Next.js and was quite similar to this one.",
-    liveUrl: "https://marcinparda.vercel.app/",
-    codeUrl: "https://github.com/MarcinParda/marcinparda-blog",
-  },
-  {
-    name: "parda.me",
-    description:
-      "Page that you are currently on. It's built with Astro and TailwindCSS.",
-    liveUrl: "https://parda.me/",
-    codeUrl: "https://github.com/MarcinParda/parda.me",
-  },
-  {
-    name: "Firebase superchat",
-    description:
-      "Chat where all the users can talk to each other. It's possible to login with Google account.",
-    liveUrl: "https://superchat-cc2d4.web.app/",
-    codeUrl: "https://github.com/MarcinParda/firebase-superchat",
-  },
-];
-
-const wipProjects: Project[] = [
-  {
-    name: "IT flashcards",
-    description:
-      "Flashcards Anki-like app for IT people. It's powered with AI and built with Nx, Nest.js & Next.js.",
-    codeUrl: "https://github.com/MarcinParda/it-flashcards",
-  },
-];
+import { FINISHED_PROJECTS, WIP_PROJECTS } from "../data/projects";
 ---
 
 <BaseLayout pageTitle={"About me"}>
@@ -61,12 +23,13 @@ const wipProjects: Project[] = [
         Code mentor. IT meetings attender, lecturer. Programming blogger. Advent
         of Code & hackatons participant. On the way to becoming a fullstack.
       </p>
-      <p class="text-justify">
+      <p class="text-justify pb-4">
         I am an optimistic minimalist who found happiness in learning new
         things. A relaxed and fun atmosphere is important to me when interacting
         with people. I enjoy confronting my thoughts with others. In my free
         time I play football, boardgames and develop AI powered apps.
       </p>
+      <Link href="/work">Go to my work experience</Link>
     </section>
     <section class="pb-12">
       <div class="flex flex-col gap-8 lg:flex-row">
@@ -74,7 +37,7 @@ const wipProjects: Project[] = [
           <h2 class="text-2xl text-gray-600 pb-4">My finished projects</h2>
           <ul>
             {
-              finishedProjects.map((project) => (
+              FINISHED_PROJECTS.map((project) => (
                 <ProjectItem project={project} />
               ))
             }
@@ -83,7 +46,7 @@ const wipProjects: Project[] = [
         <div class="lg:w-1/2">
           <h2 class="text-2xl text-gray-600 pb-4">My WIP projects</h2>
           <ul>
-            {wipProjects.map((project) => <ProjectItem project={project} />)}
+            {WIP_PROJECTS.map((project) => <ProjectItem project={project} />)}
           </ul>
         </div>
       </div>

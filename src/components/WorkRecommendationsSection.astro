@@ -1,5 +1,5 @@
 ---
-import { recommendations } from "../data/recommendations";
+import { RECOMMENDATIONS } from "../data/recommendations";
 import Link from "./Link.astro";
 ---
 
@@ -7,7 +7,7 @@ import Link from "./Link.astro";
   <h2 class="text-2xl text-gray-600 pb-8">Recommendations</h2>
   <div class="flex flex-col gap-12">
     {
-      recommendations.map((recommendation) => {
+      RECOMMENDATIONS.map((recommendation) => {
         const { recommender, recommendationText } = recommendation;
         const { name, title, linkedinProfileUrl, imageSource } = recommender;
         return (

@@ -8,7 +8,7 @@ interface Recommendation {
   recommendationText: string;
 }
 
-export const recommendations: Recommendation[] = [
+export const RECOMMENDATIONS: Recommendation[] = [
   {
     recommendationText:
       "Marcin is a JavaScript developer with a vast range of skills. He has a great knowledge about many frameworks, which I personally admire. Great understanding of software development lets him tackle even the most complex software and JavaScript solutions. I had a pleasure of working with Marcin and apart from his high technical skills he was a great team member. Always willing to help out and share programming knowledge when needed, and was very proactive in identifying potential issues.",
