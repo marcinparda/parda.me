@@ -4,5 +4,32 @@ const pageTitle = "Home Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
+  <main>
+    <section class="pb-12">
+      <h2 class="text-2xl text-gray-600 pb-8">Recommendations</h2>
+      <div>
+        <div class="flex items-center gap-2 pb-4">
+          <img
+            class="w-16 h-16 border-2 rounded-full border-blue-200"
+            src="grzegorz.png"
+            alt="Portrait of young man in a suit on white background"
+          />
+          <div class="flex flex-col items-center pr-3">
+            <p class="text-xl font-bold">Grzegorz Długokęcki</p>
+            <p class="text-gray-600">Senior Frontend Developer</p>
+          </div>
+        </div>
+        <p class="text-justify">
+          Marcin is a JavaScript developer with a vast range of skills. He has a
+          great knowledge about many frameworks, which I personally admire.
+          Great understanding of software development lets him tackle even the
+          most complex software and JavaScript solutions. I had a pleasure of
+          working with Marcin and apart from his high technical skills he was a
+          great team member. Always willing to help out and share programming
+          knowledge when needed, and was very proactive in identifying potential
+          issues.
+        </p>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
