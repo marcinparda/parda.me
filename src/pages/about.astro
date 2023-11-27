@@ -1,58 +1,14 @@
 ---
-import Link from "../components/shared/Link.astro";
-import ProjectItem from "../components/about/AboutProjectItem.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { FINISHED_PROJECTS, WIP_PROJECTS } from "../data/projects";
+import AboutIntroductionSection from "../components/about/AboutIntroductionSection.astro";
+import AboutProjectsSection from "../components/about/AboutProjectSection/AboutProjectsSection.astro";
+import AboutRecentPostSection from "../components/about/AboutRecentPostSection.astro";
 ---
 
 <BaseLayout pageTitle={"About me"}>
-  <main>
-    <section class="pb-12">
-      <div class="flex flex-col items-center pb-10">
-        <img
-          class="w-64 h-64 border-2 rounded-full border-yellow-200 mb-5"
-          alt="Portrait of bald man on blurry forest background."
-          src="face.png"
-        />
-        <header class="flex flex-col items-center">
-          <h1 class="text-5xl font-bold pb-4">Marcin Parda</h1>
-          <h2 class="text-2xl text-gray-600">Senior Developer at EY GDS</h2>
-        </header>
-      </div>
-      <p class="pb-3 text-justify">
-        Code mentor. IT meetings attender, lecturer. Programming blogger. Advent
-        of Code & hackatons participant. On the way to becoming a fullstack.
-      </p>
-      <p class="text-justify pb-4">
-        I am an optimistic minimalist who found happiness in learning new
-        things. A relaxed and fun atmosphere is important to me when interacting
-        with people. I enjoy confronting my thoughts with others. In my free
-        time I play football, boardgames and develop AI powered apps.
-      </p>
-      <Link href="/work">Go to my work experience</Link>
-    </section>
-    <section class="pb-12">
-      <div class="flex flex-col gap-8 lg:flex-row">
-        <div class="lg:w-1/2">
-          <h2 class="text-2xl text-gray-600 pb-4">My finished projects</h2>
-          <ul>
-            {
-              FINISHED_PROJECTS.map((project) => (
-                <ProjectItem project={project} />
-              ))
-            }
-          </ul>
-        </div>
-        <div class="lg:w-1/2">
-          <h2 class="text-2xl text-gray-600 pb-4">My WIP projects</h2>
-          <ul>
-            {WIP_PROJECTS.map((project) => <ProjectItem project={project} />)}
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="pb-12">
-      <h2 class="text-2xl text-gray-600 pb-8">My recent posts</h2>
-    </section>
+  <main class="flex flex-col gap-12">
+    <AboutIntroductionSection />
+    <AboutProjectsSection />
+    <AboutRecentPostSection />
   </main>
 </BaseLayout>
