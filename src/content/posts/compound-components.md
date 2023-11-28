@@ -4,7 +4,7 @@ pubDate: 2023-11-28
 tags: ["astro", "blogging", "learning in public"]
 ---
 
-# Problem
+## Problem
 
 Imagine that you have to implement a simple panel in your application that displays information to the user about a successful action. All you have to do is pass a few props to the component responsible for displaying this panel. Everything suggests that you can do it in 5 minutes.
 
@@ -43,13 +43,13 @@ As a result, our "little" monster looks like this:
 Once you have implemented your component, it's time to move on to the next component to be implemented, which will be a panel displaying an action error to the user. At this point, you have two options:
 
 1. Implement a new component in the same way as the previous one, but with a slightly different appearance and name.
-2. Add props to the `Panel` component that will be responsible for displaying the error. As a result, the number of props may even double :(
+2. Add props to the `Panel` component that will be responsible for displaying the error. As a result, the number of props may even double 😳
 
 ...or you can learn about **component composition** & **compound components** and implement your component in such a way that you don't have to pass dozens of props to it. In this article we will talk about the first option.
 
-# Solution
+## Solution
 
-## Component composition
+### Component composition
 
 Let's start with the **component composition** technique. It is a technique that allows you to create more complex components by composing smaller, logical sub-components.
 
@@ -78,7 +78,7 @@ Their usage might look like this:
 As you can see in the above example, `Select` takes its children in the form of several `MenuItem`s, instead of passing these elements in props.
 Thanks to this, these elements can be modified independently of the `Select` component. But how can we implement our `Panel` in such a way?
 
-## Component composition implementation
+### Component composition implementation
 
 1. Let's first define the interface for our (slightly simplified) component `Panel`:
 
@@ -124,9 +124,8 @@ export const PanelBody = ({ children }: ParentProps) => {
 
 4. The whole thing will look like this:
 
-`Panel.tsx`
-
 ```tsx
+// Panel.tsx
 import { ParentProps } from "./types";
 
 interface PanelProps {
@@ -143,18 +142,16 @@ export const Panel = ({ title, children }: PanelProps & ParentProps) => {
 };
 ```
 
-`PanelHeader.tsx`
-
 ```tsx
+// PanelHeader.tsx
 import { ParentProps } from "./types";
 export const PanelHeader = ({ children }: ParentProps) => {
   return <header>{children}</header>;
 };
 ```
 
-`PanelBody.tsx`
-
 ```tsx
+// PanelBody.tsx
 import { ParentProps } from "./types";
 export const PanelBody = ({ children }: ParentProps) => {
   return <main>{children}</main>;
@@ -190,13 +187,13 @@ The solution to the last two (and partially the first) problems is to use **comp
 
 In the next article, I will describe how to do this.
 
-# Summary
+## Summary
 
 That's all. I hope you enjoyed this article. If you have any questions, feel free to ask them in the comments.
 
 **Here's an addon for you.** Brief summary of an article. You can use it to create fiches cards (e.g. in Anki).
 
-## What is component composition?
+### What is component composition?
 
 **Component composition** is a technique that allows you to create more complex components by composing smaller, logical sub-components.
 

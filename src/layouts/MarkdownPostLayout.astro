@@ -4,7 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <h1>{frontmatter.title}</h1>
   <p>{frontmatter.pubDate.toString().slice(4, 15)}</p>
+  <h1>{frontmatter.title}</h1>
   <slot />
 </BaseLayout>
