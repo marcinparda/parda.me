@@ -1,11 +1,12 @@
 ---
+import WorkDescriptionSection from "../components/work/WorkDescriptionSection.astro";
 import WorkRecommendationsSection from "../components/work/WorkRecommendationsSection.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Home Page";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <main>
+<BaseLayout pageTitle="Work">
+  <main class="flex flex-col gap-12">
+    <WorkDescriptionSection />
     <WorkRecommendationsSection />
   </main>
 </BaseLayout>
