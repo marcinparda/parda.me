@@ -1,6 +1,6 @@
 ---
-import { RECOMMENDATIONS } from "../../data/recommendations";
-import Link from "../shared/Link.astro";
+import { RECOMMENDATIONS } from "./recommendations";
+import ExternalLink from "../../shared/ExternalLink.astro";
 ---
 
 <section class="pb-12">
@@ -19,9 +19,9 @@ import Link from "../shared/Link.astro";
                 alt={`Portrait of a ${name}`}
               />
               <div class="flex flex-col">
-                <Link href={linkedinProfileUrl} rel="noopener noreferrer">
+                <ExternalLink href={linkedinProfileUrl}>
                   <span class="text-xl font-bold">{name}</span>
-                </Link>
+                </ExternalLink>
                 <span class="text-gray-600">{title}</span>
               </div>
             </div>

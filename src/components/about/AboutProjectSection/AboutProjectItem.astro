@@ -1,6 +1,6 @@
 ---
 import type { Project } from "./projects";
-import Link from "../../shared/Link.astro";
+import ExternalLink from "../../shared/ExternalLink.astro";
 interface Props {
   project: Project;
 }
@@ -11,16 +11,16 @@ const { project } = Astro.props;
   <div class="flex items-center gap-2 pb-2">
     {
       project.liveUrl ? (
-        <Link href={project.liveUrl} rel="noopener noreferrer" target="_blank">
+        <ExternalLink href={project.liveUrl}>
           <span class="text-xl">{project.name}</span>
-        </Link>
+        </ExternalLink>
       ) : (
         <span class="text-xl">{project.name}</span>
       )
     }
-    <Link href={project.codeUrl} rel="noopener noreferrer" target="_blank">
+    <ExternalLink href={project.codeUrl}>
       <img src="github.svg" alt="Github logo" />
-    </Link>
+    </ExternalLink>
   </div>
   <p class="text-gray-600 text-justify">
     {project.description}

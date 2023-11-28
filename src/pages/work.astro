@@ -1,12 +1,14 @@
 ---
+import WorkCertificatesSection from "../components/work/WorkCertificatesSection/WorkCertificatesSection.astro";
 import WorkDescriptionSection from "../components/work/WorkDescriptionSection.astro";
-import WorkRecommendationsSection from "../components/work/WorkRecommendationsSection.astro";
+import WorkRecommendationsSection from "../components/work/WorkRecommendationsSection/WorkRecommendationsSection.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout pageTitle="Work">
   <main class="flex flex-col gap-12">
     <WorkDescriptionSection />
+    <WorkCertificatesSection />
     <WorkRecommendationsSection />
   </main>
 </BaseLayout>
