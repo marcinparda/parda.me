@@ -7,8 +7,8 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<li class="pb-6">
-  <div class="flex items-center gap-2 pb-2">
+<div class="pb-2">
+  <div class="flex items-center gap-2">
     {
       project.liveUrl ? (
         <ExternalLink href={project.liveUrl}>
@@ -19,10 +19,10 @@ const { project } = Astro.props;
       )
     }
     <ExternalLink href={project.codeUrl}>
-      <img src="github.svg" alt="Github logo" />
+      <img class="not-prose" src="github.svg" alt="Github logo" />
     </ExternalLink>
   </div>
-  <p class="text-gray-600 text-justify">
+  <p class="mt-1 text-gray-600">
     {project.description}
   </p>
-</li>
+</div>

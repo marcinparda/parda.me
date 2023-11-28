@@ -38,8 +38,9 @@ export default {
               color: theme("colors.gray.900"),
             },
             p: {
-              marginTop: ".875rem",
-              marginBottom: ".875rem",
+              textAlign: "justify",
+              marginTop: "1rem",
+              marginBottom: "1rem",
             },
             pre: {
               backgroundColor: theme("colors.gray.800"),
@@ -69,8 +70,8 @@ export default {
             },
             hr: { borderColor: theme("colors.gray.200") },
             ol: {
-              marginTop: ".875rem",
-              marginBottom: ".875rem",
+              marginTop: "1rem",
+              marginBottom: "1rem",
             },
             "ol li::marker": {
               fontWeight: "600",

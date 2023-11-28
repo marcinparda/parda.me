@@ -4,22 +4,18 @@ import AboutProjectItem from "./AboutProjectItem.astro";
 ---
 
 <section>
-  <div class="flex flex-col gap-8 lg:flex-row">
+  <div class="flex flex-col lg:flex-row">
     <div class="lg:w-1/2">
-      <h2 class="text-2xl text-gray-600 pb-4">My finished projects</h2>
-      <ul>
-        {
-          FINISHED_PROJECTS.map((project) => (
-            <AboutProjectItem project={project} />
-          ))
-        }
-      </ul>
+      <h2>My finished projects</h2>
+      {
+        FINISHED_PROJECTS.map((project) => (
+          <AboutProjectItem project={project} />
+        ))
+      }
     </div>
     <div class="lg:w-1/2">
-      <h2 class="text-2xl text-gray-600 pb-4">My WIP projects</h2>
-      <ul>
-        {WIP_PROJECTS.map((project) => <AboutProjectItem project={project} />)}
-      </ul>
+      <h2>My WIP projects</h2>
+      {WIP_PROJECTS.map((project) => <AboutProjectItem project={project} />)}
     </div>
   </div>
 </section>

@@ -1,9 +1,0 @@
----
-import type { HTMLAttributes } from "astro/types";
-type Props = HTMLAttributes<"a">;
-const props = Astro.props;
----
-
-<a class="underline hover:text-blue-800 hover:cursor-pointer" {...props}>
-  <slot />
-</a>

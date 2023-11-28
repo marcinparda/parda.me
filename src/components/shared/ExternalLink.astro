@@ -1,10 +1,9 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import Link from "./Link.astro";
 type Props = HTMLAttributes<"a">;
 const props = Astro.props;
 ---
 
-<Link rel="noopener noreferrer" target="_blank" {...props}>
+<a rel="noopener noreferrer" target="_blank" {...props}>
   <slot />
-</Link>
+</a>
