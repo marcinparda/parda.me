@@ -6,8 +6,7 @@ const allPosts = await getCollection("posts");
 ---
 
 <BaseLayout pageTitle="Blog">
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
+  <ul class="mt-0">
     {
       allPosts.map((post) => (
         <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />

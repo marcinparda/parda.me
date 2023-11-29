@@ -4,7 +4,7 @@ import ExternalLink from "../../shared/ExternalLink.astro";
 ---
 
 <section class="pb-12">
-  <h2 class="text-2xl text-gray-600 pb-8">Recommendations</h2>
+  <h2>Recommendations</h2>
   <div class="flex flex-col gap-12">
     {
       RECOMMENDATIONS.map((recommendation) => {
@@ -14,7 +14,7 @@ import ExternalLink from "../../shared/ExternalLink.astro";
           <div>
             <div class="flex items-center gap-3 pb-4">
               <img
-                class="w-16 h-16 border-2 rounded-full border-yellow-200"
+                class="not-prose w-16 h-16 border-2 rounded-full border-yellow-200"
                 src={imageSource}
                 alt={`Portrait of a ${name}`}
               />
