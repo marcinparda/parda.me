@@ -3,14 +3,37 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/blog/BlogPost.astro";
 const allPosts = await getCollection("posts");
+type Post = (typeof allPosts)[0];
+
+const postsByYear = allPosts.reduce(
+  (groupedPosts, post) => {
+    const year = new Date(post.data.pubDate).getFullYear();
+    if (!groupedPosts[year]) groupedPosts[year] = [];
+    groupedPosts[year]!.push(post);
+    return groupedPosts;
+  },
+  {} as Record<number, Post[]>,
+);
 ---
 
 <BaseLayout pageTitle="Blog">
-  <ul class="mt-0">
-    {
-      allPosts.map((post) => (
-        <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
-      ))
-    }
-  </ul>
+  <h1>Blogposts</h1>
+  {
+    postsByYear &&
+      Object.keys(postsByYear)
+        .reverse()
+        .map((year) => (
+          <div>
+            <h3>{year}</h3>
+            <ul class="mt-0">
+              {postsByYear[Number(year)]!.map((post) => (
+                <BlogPost
+                  url={`/posts/${post.slug}/`}
+                  title={post.data.title}
+                />
+              ))}
+            </ul>
+          </div>
+        ))
+  }
 </BaseLayout>
