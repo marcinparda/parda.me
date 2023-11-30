@@ -14,23 +14,34 @@ const postsByYear = allPosts.reduce(
   },
   {} as Record<number, Post[]>,
 );
+
+// write a function that will be returning from post month and day from pubDate in format mm/dd
+const getMonthAndDay = (date: Date) => {
+  const month = new Date(date).getMonth() + 1;
+  const day = new Date(date).getDate();
+  return `${month}/${day}`;
+};
 ---
 
 <BaseLayout pageTitle="Blog">
   <h1>Blogposts</h1>
+  <hr class="m-0" />
   {
     postsByYear &&
       Object.keys(postsByYear)
         .reverse()
         .map((year) => (
-          <div>
-            <h3>{year}</h3>
-            <ul class="mt-0">
+          <div class="flex justify-between border-b">
+            <h3 class="mt-2">{year}</h3>
+            <ul class="mt-1">
               {postsByYear[Number(year)]!.map((post) => (
-                <BlogPost
-                  url={`/posts/${post.slug}/`}
-                  title={post.data.title}
-                />
+                <div>
+                  <BlogPost
+                    url={`/posts/${post.slug}/`}
+                    title={post.data.title}
+                  />
+                  <div>{getMonthAndDay(post.data.pubDate)}</div>
+                </div>
               ))}
             </ul>
           </div>
