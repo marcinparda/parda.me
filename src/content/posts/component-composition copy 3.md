@@ -1,5 +1,5 @@
 ---
-title: Component composition
+title: This is a very long and attractive title for my and only mine article that is also very long and attractive
 pubDate: 2023-11-28
 tags: ["astro", "blogging", "learning in public"]
 ---

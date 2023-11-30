@@ -1,7 +1,7 @@
 ---
+// blog page inspired by paco.me writing page
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import BlogPost from "../components/blog/BlogPost.astro";
 const allPosts = await getCollection("posts");
 type Post = (typeof allPosts)[0];
 
@@ -25,25 +25,26 @@ const getMonthAndDay = (date: Date) => {
 
 <BaseLayout pageTitle="Blog">
   <h1>Blogposts</h1>
-  <hr class="m-0" />
+  <hr class="mb-0" />
   {
     postsByYear &&
       Object.keys(postsByYear)
         .reverse()
         .map((year) => (
-          <div class="flex justify-between border-b">
-            <h3 class="mt-2">{year}</h3>
-            <ul class="mt-1">
+          <div class="grid grid-flow-col grid-cols-4 border-b">
+            <span class="font-bold py-2">{year}</span>
+            <div class="col-span-3">
               {postsByYear[Number(year)]!.map((post) => (
-                <div>
-                  <BlogPost
-                    url={`/posts/${post.slug}/`}
-                    title={post.data.title}
-                  />
-                  <div>{getMonthAndDay(post.data.pubDate)}</div>
-                </div>
+                <hr class="m-0 first:hidden" />
+                <a
+                  href={`/posts/${post.slug}/`}
+                  class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
+                >
+                  <span>{post.data.title}</span>
+                  <span>{getMonthAndDay(post.data.pubDate)}</span>
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
         ))
   }
