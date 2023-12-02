@@ -16,20 +16,24 @@ const { pageTitle } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="overflow-y-scroll prose bg-slate-50 inline">
-    <div class="min-h-screen flex flex-col justify-between">
-      <div
-        class="pt-10 px-8 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
-      >
-        <header class="text-5xl font-bold pb-12 hidden md:block font-comfortaa">
-          parda.me
-        </header>
-        <div class="flex flex-col md:flex-row">
-          <header class="text-4xl font-bold pb-8 md:hidden font-comfortaa">
+    <div class="flex flex-col min-h-screen justify-between">
+      <div class="flex">
+        <div
+          class="grow pt-10 px-8 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
+        >
+          <header
+            class="text-5xl font-bold pb-12 hidden md:block font-comfortaa"
+          >
             parda.me
           </header>
-          <Navigation />
-          <div>
-            <slot />
+          <div class="flex flex-col md:flex-row">
+            <header class="text-4xl font-bold pb-8 md:hidden font-comfortaa">
+              parda.me
+            </header>
+            <Navigation />
+            <div class="grow">
+              <slot />
+            </div>
           </div>
         </div>
       </div>
