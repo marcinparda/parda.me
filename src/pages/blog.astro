@@ -37,7 +37,7 @@ const getMonthAndDay = (date: Date) => {
               {postsByYear[Number(year)]!.map((post) => (
                 <hr class="m-0 first:hidden" />
                 <a
-                  href={`/posts/${post.slug}/`}
+                  href={`/blog/${post.slug}/`}
                   class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
                 >
                   <span>{post.data.title}</span>
