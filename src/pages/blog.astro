@@ -1,5 +1,6 @@
 ---
 // blog page inspired by paco.me writing page
+import { getMonthAndDay } from "../utils/date";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
@@ -14,18 +15,11 @@ const postsByYear = allPosts.reduce(
   },
   {} as Record<number, Post[]>,
 );
-
-// write a function that will be returning from post month and day from pubDate in format mm/dd
-const getMonthAndDay = (date: Date) => {
-  const month = new Date(date).getMonth() + 1;
-  const day = new Date(date).getDate();
-  return `${month}/${day}`;
-};
 ---
 
 <BaseLayout pageTitle="Blog">
   <h1>Blogposts</h1>
-  <hr class="mb-0" />
+  <hr class="mb-0" /> 
   {
     postsByYear &&
       Object.keys(postsByYear)

@@ -1,3 +1,26 @@
-<section>
+---
+import { getCollection } from "astro:content";
+import { getFullDate } from "../../utils/date";
+const allPosts = await getCollection("posts");
+const recentPosts = allPosts.slice(0, 3);
+---
+
+<section class="pb-24">
   <h2>My recent blogposts</h2>
+  <div class="py-0 border-t border-b">
+    {
+      recentPosts.map((post) => (
+        <>
+          <hr class="m-0 first:hidden" />
+          <a
+            href={`/blog/${post.slug}/`}
+            class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
+          >
+            <span>{post.data.title}</span>
+            <span>{getFullDate(post.data.pubDate)}</span>
+          </a>
+        </>
+      ))
+    }
+  </div>
 </section>
