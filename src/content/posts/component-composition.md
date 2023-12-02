@@ -1,7 +1,7 @@
 ---
-title: Component composition
-pubDate: 2023-11-28
-tags: ["astro", "blogging", "learning in public"]
+title: How to avoid passing multiple props to components using component composition in React?
+pubDate: 2023-03-26
+tags: [react, component-composition, design-patterns]
 ---
 
 ## Problem
