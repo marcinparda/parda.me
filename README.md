@@ -1,18 +1,41 @@
-# Astro "Build a Blog" Project - Completed
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/blog-tutorial-demo/tree/complete)
+# My personal blog/portfolio
 
-This is the project you'll build with the [Astro Tutorial](https://docs.astro.build/en/tutorial/0-introduction/). Use this code to compare to your own, or explore to see how the basics of a blog are built in Astro!
+[Personal blog and portfolio](https://parda.me/). The topics I touch on in posts are mainly React and Typescript, but also other technologies related to web development.
 
-This branch contains the state of the project after completing the final unit, [Unit 6](https://docs.astro.build/en/tutorial/6-islands/3/).
+Made with Astro.js & tailwindcss.
 
-Checkpoints:
-- [Start of Unit 2](https://github.com/withastro/blog-tutorial-demo/tree/unit-2/start)
-- [Start of Unit 3](https://github.com/withastro/blog-tutorial-demo/tree/unit-3/start)
-- [Start of Unit 4](https://github.com/withastro/blog-tutorial-demo/tree/unit-4/start)
-- [Start of Unit 5](https://github.com/withastro/blog-tutorial-demo/tree/unit-5/start)
-- [Start of Unit 6](https://github.com/withastro/blog-tutorial-demo/tree/unit-6/start)
-- [Complete](https://github.com/withastro/blog-tutorial-demo/tree/complete)
+## Motivation
 
-Extension:
-You can also see a guided walkthrough in Astro Docs to [convert this project to use content collections](https://docs.astro.build/en/guides/content-collections/#migrating-from-file-based-routing).
-- [Completed project branch using Content Collections](https://github.com/withastro/blog-tutorial-demo/tree/content-collections).
+This blog was created mainly to expand and structure your knowledge on various topics, but if you think the content in it is valuable, I'll be glad if you share it with others.
+
+## Installation
+
+```bash
+pnpm install
+```
+
+## Development
+
+First, run the development server:
+
+```bash
+pnpm start
+```
+
+or
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:4321](http://localhost:4321) with your browser to see the result.
+
+You can start editing the page by modifying `src/pages/about.astro`. The page auto-updates as you edit the file.
+
+## Contributing
+
+This blog is an open source project, and contributions of any kind are welcome. Feel free to open bug tickets in [issues](https://github.com/MarcinParda/parda.me/issues) or make pull requests.
+
+## Licence
+
+[MIT]([https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/LICENSE](https://raw.githubusercontent.com/MarcinParda/My-licenses/main/MIT.md)https://raw.githubusercontent.com/MarcinParda/My-licenses/main/MIT.md)
