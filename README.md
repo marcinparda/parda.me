@@ -38,4 +38,4 @@ This blog is an open source project, and contributions of any kind are welcome. 
 
 ## Licence
 
-[MIT]([https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/LICENSE](https://raw.githubusercontent.com/MarcinParda/My-licenses/main/MIT.md)https://raw.githubusercontent.com/MarcinParda/My-licenses/main/MIT.md)
+[MIT](https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/LICENSE](https://raw.githubusercontent.com/MarcinParda/My-licenses/main/MIT.md)https://raw.githubusercontent.com/MarcinParda/My-licenses/main/MIT.md)
