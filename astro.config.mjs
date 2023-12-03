@@ -5,9 +5,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://parda.me",
   integrations: [tailwind()],
-  redirects: {
-    "/": "/about",
-  },
   prefetch: {
     prefetchAll: true,
   },
