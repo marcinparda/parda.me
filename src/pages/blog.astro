@@ -19,7 +19,7 @@ const postsByYear = allPosts.reduce(
 
 <BaseLayout pageTitle="Blog">
   <h1>Blogposts</h1>
-  <hr class="mb-0" /> 
+  <hr class="mb-0" />
   {
     postsByYear &&
       Object.keys(postsByYear)
@@ -29,14 +29,16 @@ const postsByYear = allPosts.reduce(
             <span class="font-bold py-2">{year}</span>
             <div class="col-span-3">
               {postsByYear[Number(year)]!.map((post) => (
-                <hr class="m-0 first:hidden" />
-                <a
-                  href={`/blog/${post.slug}/`}
-                  class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
-                >
-                  <span>{post.data.title}</span>
-                  <span>{getMonthAndDay(post.data.pubDate)}</span>
-                </a>
+                <div>
+                  <hr class="m-0 first:hidden" />
+                  <a
+                    href={`/blog/${post.slug}/`}
+                    class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
+                  >
+                    <span>{post.data.title}</span>
+                    <span>{getMonthAndDay(post.data.pubDate)}</span>
+                  </a>
+                </div>
               ))}
             </div>
           </div>
