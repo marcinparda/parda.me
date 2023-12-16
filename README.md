@@ -6,7 +6,7 @@ Made with Astro.js & tailwindcss.
 
 ## Motivation
 
-This blog was created mainly to expand and structure your knowledge on various topics, but if you think the content in it is valuable, I'll be glad if you share it with others.
+This blog was created mainly to expand and structure my knowledge on various topics, but if you think the content in it is valuable, I'll be glad if you share it with others.
 
 ## Installation
 
