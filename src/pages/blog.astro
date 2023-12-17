@@ -6,7 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
 type Post = (typeof allPosts)[0];
 
-const postsSortedByDate = allPosts.toSorted(
+const postsSortedByDate = allPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 
