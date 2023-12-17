@@ -2,7 +2,10 @@
 import { getCollection } from "astro:content";
 import { getFullDate } from "../../utils/date";
 const allPosts = await getCollection("posts");
-const recentPosts = allPosts.slice(0, 3);
+const postSortedByDate = allPosts.toSorted(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+const recentPosts = postSortedByDate.slice(0, 3);
 ---
 
 <section class="pb-24">
