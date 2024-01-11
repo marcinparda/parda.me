@@ -20,10 +20,10 @@ tags: ["Newsletter"]
 
 ## TypeScript
 
-- [ElementRef is so under-used #react #typescript](undefined) - How to type useRef with typescript easily.
-- [New Free Total TypeScript Tutorial! #typescript](undefined) - New free tutorial about handling typescript errors.
-- [Most TS devs don't understand 'satisfies'](undefined) - Explanation on when to use satisfies (spoiler: for narrowing type based on variable value)
-- [Using 'as const' is never not awesome #typescript](undefined) - Using as const for strong infer
+- [ElementRef is so under-used #react #typescript](https://www.youtube.com/watch?v=QCY_yPiJFKU) - How to type useRef with typescript easily.
+- [New Free Total TypeScript Tutorial! #typescript](https://www.youtube.com/watch?v=s1t1LQjntx4) - New free tutorial about handling typescript errors.
+- [Most TS devs don't understand 'satisfies'](https://youtu.be/r1L35zxZQPE?) - Explanation on when to use satisfies (spoiler: for narrowing type based on variable value)
+- [Using 'as const' is never not awesome #typescript](https://www.youtube.com/watch?v=J7JmmMLmh8A) - Using as const for strong infer
 
 ## React
 
@@ -32,7 +32,7 @@ tags: ["Newsletter"]
 - [React Tricks: Fast, Fit and Fun](https://molefrog.com/notes/react-tricks?utm_source=newsletter.reactdigest.net&utm_medium=referral&utm_campaign=react-tricks-fast-fit-and-fun) - Microrouter, improving performence and more
 - [React Server Components: the Good, the Bad, and the Ugly](https://www.mayank.co/blog/react-server-components/) - Article pointing out some good solutions and problems that React Server Components have. It also refers to frameworks like Next.js and Remix.
 - [Overlay for hydration errors with explicit diff between renders](https://reactjsexample.com/overlay-for-hydration-errors-with-explicit-diff-between-renders/) - This package displays an overlay during Hydration Errors, providing an explicit diff between the server-side and client-side renders. Very useful if you struggle with Hydration Mismatch a lot.
-- [React FC used to be crap, now it's fine](undefined) - Be aware if you using React.FC with right React version!
+- [React FC used to be crap, now it's fine](https://youtu.be/dBghzhMSfDY) - Be aware if you using React.FC with right React version!
 - [Learn React Props – The Animated Guide](https://www.freecodecamp.org/news/react-props-animated-guide/) - Good knowledge refresher
 - [How to Handle Errors in React Applications](https://www.freecodecamp.org/news/effective-error-handling-in-react-applications/)
 - [A React component custom player support video m3u8, mp4](https://reactjsexample.com/a-react-component-custom-player-support-video-m3u8-mp4/)
@@ -48,20 +48,20 @@ tags: ["Newsletter"]
 
 ## Architecture
 
-- [The AHA Stack](undefined) - Stack to ship plain HTML to the browser, not a thick JavaScript app that runs inside the browser.
-- [Dlaczego architektura jest trudna? Rozmowa z Bartkiem Witczakiem](undefined) - [PL] Good talk about talking with biznes-side of project about your needs and their requirements.
-- [Jakie granice powinien mieć moduł? Rozmowa z Marcinem Milewiczem oraz Szymonem Pawlakiem](undefined) - [PL] Talk about DDD approach on frontend.
+- [The AHA Stack](https://ahastack.dev/) - Stack to ship plain HTML to the browser, not a thick JavaScript app that runs inside the browser.
+- [Dlaczego architektura jest trudna? Rozmowa z Bartkiem Witczakiem](https://youtu.be/RwtCByFt8Ck) - [PL] Good talk about talking with biznes-side of project about your needs and their requirements.
+- [Jakie granice powinien mieć moduł? Rozmowa z Marcinem Milewiczem oraz Szymonem Pawlakiem](https://youtu.be/zYgkjcxOZjg) - [PL] Talk about DDD approach on frontend.
 
 ## Other
 
 - [Table of Contents](https://risingstars.js.org/2023/en) - 8th edition of the JavaScript Rising Stars, the place to see the trends about the JS ecosystem in 2023.
-- [[no-title]](https://ui.shadcn.com/docs/changelog) - New components, CLI for shadcn/ui library
-- [Reference docs for npm packages](undefined) - Browse type documentation for npm packages
+- [shadcn.ui new update](https://ui.shadcn.com/docs/changelog) - New components, CLI for shadcn/ui library
+- [Reference docs for npm packages](https://tsdocs.dev/) - Browse type documentation for npm packages
 - [Web Accessibility Best Practices – How to Ensure Everyone Can Use Your Website](https://www.freecodecamp.org/news/web-accessibility-best-practices/) - Post about A11y and neat tools to ensure youre page is accessible
-- [How did I not know this VSCode shortcut...](undefined) - Useful when editing some json file
+- [How did I not know this VSCode shortcut...](https://youtu.be/HFWE2Cr6iCM) - Useful when editing some json file
 - [How to Use an API with Postman – A Step-by-Step Guide](https://www.freecodecamp.org/news/how-to-use-an-api-with-postman/) - How to test and monitor APIs with postman and mamy more, beginner friendly
 - [Mastering Behavioral Interviews for Software Developers](https://www.freecodecamp.org/news/mastering-behavioral-interviews-for-software-developers/)
-- [10 weird algorithms](undefined) - Not very informative, but can get you intrested into world od algorithms.
+- [10 weird algorithms](https://youtu.be/SmyPTnlqhlk) - Not very informative, but can get you intrested into world od algorithms.
 - [710: A Passwordless Future Passkeys with Anna Pobletts](https://syntax.fm/show/710/a-passwordless-future-passkeys-with-anna-pobletts) - Talk with Anna Pobletts of Passage about passkeys, how passkeys work, how to implement passkeys on your website or app, what the recommended UI is for passkeys, what happens to your passkey if you lose your phone, and more.
 - [Idempotence in HTTP Methods – Explained with CRUD Examples](https://www.freecodecamp.org/news/idempotency-in-http-methods/) - Begginer friendly
 - [API Documentation Best Practices Course](https://www.freecodecamp.org/news/api-documentation-best-practices-course/) - 2h long video covering best practices of creating api.
