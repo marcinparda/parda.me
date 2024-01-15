@@ -6,7 +6,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
 type Post = (typeof allPosts)[0];
 
-const postsByYear = allPosts.reduce(
+const postsSortedByDate = allPosts.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+
+const postsByYear = postsSortedByDate.reduce(
   (groupedPosts, post) => {
     const year = new Date(post.data.pubDate).getFullYear();
     if (!groupedPosts[year]) groupedPosts[year] = [];
