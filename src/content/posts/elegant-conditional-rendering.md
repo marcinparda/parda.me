@@ -1,5 +1,5 @@
 ---
-title: "How to make conditional rendering without a lot of if statements?"
+title: "How to create conditional rendering in React without using many if statements."
 pubDate: 2024-02-04
 tags: [react]
 ---
@@ -38,7 +38,7 @@ const Dashboard = ({ userType }: { userType: UserType }) => {
 };
 ```
 
-The given code for rendering user dashboards is written in an "ugly" way, using multiple if-else statements to check the user's permission and render the appropriate dashboard. This approach can lead to repetitive code and reduced maintainability.
+The given code for rendering user dashboards is written with using multiple if-else statements to check the user's permission and render the appropriate dashboard. This approach can lead to repetitive code and reduced maintainability.
 
 # Solution
 
@@ -75,7 +75,7 @@ We must be careful with new approach because if the user type is not found in th
 
 # Summary
 
-By refactoring the code to use the dashboards variable approach, we have improved the maintainability and readability of the code. This approach follows best practices and provides a more elegant solution for rendering user dashboards based on their permissions.
+By refactoring the code to use the dashboards variable approach, we have improved the maintainability and readability of the code. This approach provides a more elegant solution for rendering React components based on many conditions.
 
 # Flashcard
 
