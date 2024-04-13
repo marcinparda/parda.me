@@ -10,7 +10,7 @@ Hooks are a feature introduced in React 16.8 that allow you to use state and oth
 
 ## Explanation
 
-The reason why you cannot use hooks inside an **`if`** statement is that hooks rely on the order in which they are called (the hook call chain). When you use a hook, React keeps track of the order in which the hooks are called and uses that information to manage the state and other resources associated with that hook.
+The reason why you cannot use hooks inside an `if` statement is that hooks rely on the order in which they are called (the hook call chain). When you use a hook, React keeps track of the order in which the hooks are called and uses that information to manage the state and other resources associated with that hook.
 
 ## The Hook Call Chain
 
@@ -33,10 +33,10 @@ function Component() {
 
 In this example, the hooks are called in the following order on every render:
 
-1. **`useState('Title')`**
-2. **`useState('Description')`**
-3. **`useEffect(logTitle)`**
-4. **`useEffect(logDescription)`**
+1. `useState('Title')`
+2. `useState('Description')`
+3. `useEffect(logTitle)`
+4. `useEffect(logDescription)`
 
 React needs to call these hooks in that order every time. If you were to put one of the `useState` 
 
@@ -49,7 +49,7 @@ calls inside an `if` statement, it would break the chain order and could lead to
 3. **Enabling Optimizations**: The consistent hook call order allows React to optimize the component's performance. If the order changes, React loses the ability to make certain optimizations.
 4. **Clarity of Code**: Calling hooks in a consistent order at the top level of the component makes the stateful logic of the component clear and easy to understand.
 
-## **Summary**
+## Summary
 
 That’s all. I hope you enjoyed this article. If you have any questions, feel free to ask them in the comments.
 
