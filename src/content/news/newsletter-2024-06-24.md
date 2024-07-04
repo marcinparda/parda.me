@@ -4,7 +4,6 @@ pubDate: 2024-06-24
 tags: ["Newsletter"]
 ---
 
-Wise Monday, 24 of June, 2024
 ## Highlighted
 - [Results of 2023 State of JS](https://2023.stateofjs.com/en-US)  - Vite and Vitest growing still growing in popularity. Vue slightly overtakes Angular. And the most commented library is React. (Most likely because of RSC concept)
 - [Tao of node](https://alexkondov.com/tao-of-node/)  - This article was recommended to me as a guideline for writing clean code in node.js. I'm only halfway through, but I highly recommend it!
