@@ -4,7 +4,7 @@ pubDate: 2024-07-01
 tags: [react, props, typescript, 3rd-party-library]
 ---
 
-Well… because I did. And I lost some time (and clients' money) because of it.
+Well… because I did. And I lost some valuable time because of it.
 
 ## Problem
 
