@@ -1,6 +1,6 @@
 ---
 title: How to Make Working with Complex Union Types Easier Using Discriminated Unions?
-pubDate: 2024-08-01
+pubDate: 2024-10-18
 tags: [typescript, discriminated-unions]
 ---
 
