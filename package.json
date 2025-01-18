@@ -18,7 +18,7 @@
     "@astrojs/vercel": "^8.0.2",
     "@fontsource-variable/comfortaa": "^5.0.17",
     "@fontsource-variable/raleway": "^5.0.16",
-    "astro": "^3.5.5",
+    "astro": "^5.1.7",
     "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
