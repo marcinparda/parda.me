@@ -16,7 +16,7 @@ const recentPosts = postSortedByDate.slice(0, 3);
         <>
           <hr class="m-0 first:hidden" />
           <a
-            href={`/blog/${post.slug}/`}
+            href={`/blog/${post.id}/`}
             class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
           >
             <span>{post.data.title}</span>
