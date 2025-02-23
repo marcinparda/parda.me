@@ -1,10 +1,9 @@
 ---
-// blog page inspired by paco.me writing page
+import type { CollectionEntry } from "astro:content";
 import { getMonthAndDay } from "../utils/date";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
-type Post = (typeof allPosts)[0];
 
 const postsSortedByDate = allPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
@@ -17,7 +16,7 @@ const postsByYear = postsSortedByDate.reduce(
     groupedPosts[year]!.push(post);
     return groupedPosts;
   },
-  {} as Record<number, Post[]>,
+  {} as Record<number, CollectionEntry<"posts">[]>,
 );
 ---
 
@@ -37,7 +36,7 @@ const postsByYear = postsSortedByDate.reduce(
                 <div>
                   <hr class="m-0 first:hidden" />
                   <a
-                    href={`/blog/${post.slug}/`}
+                    href={`/blog/${post.id}/`}
                     class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
                   >
                     <span>{post.data.title}</span>

@@ -1,0 +1,23 @@
+---
+export const prerender = true;
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const newsletters = await getCollection("newsletters");
+  return newsletters.map((newsletter) => ({
+    params: { id: newsletter.id },
+    props: { newsletter },
+  }));
+}
+
+const { newsletter } = Astro.props;
+if (!newsletter) {
+  return new Response(null, { status: 404 });
+}
+const { Content } = await render(newsletter);
+---
+
+<MarkdownPostLayout frontmatter={newsletter.data}>
+  <Content />
+</MarkdownPostLayout>

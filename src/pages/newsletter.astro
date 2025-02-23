@@ -1,23 +1,22 @@
 ---
 // News page inspired by paco.me writing page
 import { getMonthAndDay } from "../utils/date";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allNews = await getCollection("news");
-type News = (typeof allNews)[0];
+const allNewsletters = await getCollection("newsletters");
 
-const newsSortedByDate = allNews.sort(
+const newslettersSortedByDate = allNewsletters.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 
-const newsByYear = newsSortedByDate.reduce(
-  (groupednewss, news) => {
-    const year = new Date(news.data.pubDate).getFullYear();
+const newslettersByYear = newslettersSortedByDate.reduce(
+  (groupednewss, newsletter) => {
+    const year = new Date(newsletter.data.pubDate).getFullYear();
     if (!groupednewss[year]) groupednewss[year] = [];
-    groupednewss[year]!.push(news);
+    groupednewss[year]!.push(newsletter);
     return groupednewss;
   },
-  {} as Record<number, News[]>,
+  {} as Record<number, CollectionEntry<"newsletters">[]>,
 );
 ---
 
@@ -26,22 +25,22 @@ const newsByYear = newsSortedByDate.reduce(
   <a href="/news.xml">News RSS</a>
   <hr class="mb-0" />
   {
-    newsByYear &&
-      Object.keys(newsByYear)
+    newslettersByYear &&
+      Object.keys(newslettersByYear)
         .reverse()
         .map((year) => (
           <div class="grid grid-flow-col grid-cols-4 border-b">
             <span class="font-bold py-2">{year}</span>
             <div class="col-span-3">
-              {newsByYear[Number(year)]!.map((news) => (
+              {newslettersByYear[Number(year)]!.map((newsletter) => (
                 <div>
                   <hr class="m-0 first:hidden" />
                   <a
-                    href={`/news/${news.slug}/`}
+                    href={`/newsletters/${newsletter.id}/`}
                     class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
                   >
-                    <span>{news.data.title}</span>
-                    <span>{getMonthAndDay(news.data.pubDate)}</span>
+                    <span>{newsletter.data.title}</span>
+                    <span>{getMonthAndDay(newsletter.data.pubDate)}</span>
                   </a>
                 </div>
               ))}
