@@ -8,11 +8,8 @@ const allPosts = await getCollection("posts");
 const filterOutDraftsPosts = allPosts.filter(
   (post) => post.data.draft !== true,
 );
-const filterOutFuturePosts = filterOutDraftsPosts.filter(
-  (post) => post.data.pubDate.getTime() <= new Date().getTime(),
-);
 
-const postsSortedByDate = filterOutFuturePosts.sort(
+const postsSortedByDate = filterOutDraftsPosts.sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 
