@@ -36,6 +36,6 @@ You can start editing the page by modifying `src/pages/about.astro`. The page au
 
 This blog is an open source project, and contributions of any kind are welcome. Feel free to open bug tickets in [issues](https://github.com/MarcinParda/parda.me/issues) or make pull requests.
 
-## Licence
+## Licence 
 
 [MIT](https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/LICENSE](https://raw.githubusercontent.com/MarcinParda/My-licenses/main/MIT.md)https://raw.githubusercontent.com/MarcinParda/My-licenses/main/MIT.md)
