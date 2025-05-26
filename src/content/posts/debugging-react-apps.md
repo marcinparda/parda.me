@@ -1,7 +1,7 @@
 ---
-title: How I Debug My React Apps: Practical Techniques for Real-World Projects  
-pubDate: 2025-06-01  
-tags: [react, debugging, development, devtools]  
+title: How I Debug My React Apps - Practical Techniques for Real-World Projects
+pubDate: 2025-06-01
+tags: [react, debugging, development, devtools]
 ---
 
 Debugging is one of the most important skills you develop as a React developer. It’s something that separates a smooth developer experience (and happier users) from hours of confusion staring at misbehaving UI. Over dozens of shipped projects, I’ve developed a set of go-to strategies—ranging from print debugging to fancy profiling and tool-assisted time-travel—that help me track down and squash bugs efficiently. In this post, I’ll walk through how I actually debug my React apps, from simple techniques to advanced workflows.
