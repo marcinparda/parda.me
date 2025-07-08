@@ -1,6 +1,6 @@
 ---
 title: TypeScript Enums - Yay or Nay?
-pubDate: 2025-08-01
+pubDate: 2025-07-01
 tags: [TypeScript, Enums]
 ---
 
