@@ -1,3 +1,14 @@
 ---
-return Astro.redirect("/about");
+
 ---
+
+// No visible content, just immediate redirect
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/about" />
+    <script>
+      window.location.replace("/about");
+    </script>
+  </head>
+  <body></body>
+</html>
