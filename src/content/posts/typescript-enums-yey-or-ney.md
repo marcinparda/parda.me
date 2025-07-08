@@ -1,10 +1,10 @@
 ---
-title: TypeScript Enums: Yay or Nay?
-pubDate: 2025-08-01 
+title: TypeScript Enums - Yay or Nay?
+pubDate: 2025-08-01
 tags: [TypeScript, Enums]
 ---
 
-Typescript introduces `Enums` as a solution to group a related set of identifiers together in a meaningful way. Yet, this language feature come under a storm of criticism, with many arguing against using for various reasons. This article will shed some light on their symbolic nature, when to use them, and when to consider alternatives. 
+Typescript introduces `Enums` as a solution to group a related set of identifiers together in a meaningful way. Yet, this language feature come under a storm of criticism, with many arguing against using for various reasons. This article will shed some light on their symbolic nature, when to use them, and when to consider alternatives.
 
 ## Symbolic Nature of TypeScript Enums
 
@@ -13,13 +13,13 @@ Enums in TypeScript, as mentioned above, are a means of grouping related identif
 The core characteristic of TypeScript Enums is their symbolic nature, meaning the decisions about Enum's values are taken during runtime rather than compile-time. This means you can refer to Enum members in ways like static properties in classes or such.
 
 Here's a basic example:
+
 ```typescript
 enum RoleEnum {
-  Administrator = 'ADMIN',
-  Editor = 'EDITOR',
-  Viewer = 'VIEWER'
+  Administrator = "ADMIN",
+  Editor = "EDITOR",
+  Viewer = "VIEWER",
 }
-
 ```
 
 These enumeration members are assigned string values, making them symbolic names for the corresponding values. More likely than not, you've used symbols like these when handling roles in an application with a permissions system.
@@ -39,7 +39,7 @@ enum ThemeEnum {
 const ThemeContext = createContext<ThemeEnum>(ThemeEnum.Light);
 
 export const ThemeProvider: React.FC = ({ children }) => {
- 
+
    const [theme, setTheme] = useState<ThemeEnum>(ThemeEnum.Light);
 
    const switchTheme = useCallback(() => {
@@ -56,7 +56,7 @@ export const ThemeProvider: React.FC = ({ children }) => {
 // Then in some component
 const YourComponent: React.FC = () => {
     const theme = useContext(ThemeContext);
-    
+
     return <div className={theme}>Your content here...</div>
 ```
 
@@ -75,7 +75,7 @@ enum StatusEnum {
   Failure = 'Failed',
 }
 
-// Component 
+// Component
 const MyComponent: React.FC = () => {
   const [status, setStatus] = useState<string>("");
 
@@ -105,9 +105,9 @@ My advice is to use Enums when you have a fixed set of values that are not going
 
 ```typescript
 const TaskStatus = {
-  Pending: Symbol('Pending'),
-  InProgress: Symbol('InProgress'),
-  Completed: Symbol('Completed')
+  Pending: Symbol("Pending"),
+  InProgress: Symbol("InProgress"),
+  Completed: Symbol("Completed"),
 };
 ```
 
@@ -119,6 +119,6 @@ TypeScript Enums provide a convenient way to group related constants - especiall
 
 ## Flashcards
 
-**Front:** What is symbolic nature of TypeScript Enums? 
+**Front:** What is symbolic nature of TypeScript Enums?
 
 **Back:** Enums in TypeScript allow us to define a set of named constants - a collection of related values that can be numeric or string values. These Enums are static named constants that provide symbolic names for such set of values.
