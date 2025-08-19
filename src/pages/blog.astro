@@ -6,11 +6,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
 
 const filterOutDraftsPosts = allPosts.filter(
-  (post) => post.data.draft !== true,
+  (post) => post.data.draft !== true
 );
 
 const postsSortedByDate = filterOutDraftsPosts.sort(
-  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
 const postsByYear = postsSortedByDate.reduce(
@@ -20,7 +20,7 @@ const postsByYear = postsSortedByDate.reduce(
     groupedPosts[year]!.push(post);
     return groupedPosts;
   },
-  {} as Record<number, CollectionEntry<"posts">[]>,
+  {} as Record<number, CollectionEntry<"posts">[]>
 );
 ---
 
@@ -41,7 +41,7 @@ const postsByYear = postsSortedByDate.reduce(
                   <hr class="m-0 first:hidden" />
                   <a
                     href={`/blog/${post.id}/`}
-                    class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
+                    class="not-prose flex justify-between gap-4 py-2 opacity-75 hover:opacity-100 transition-all"
                   >
                     <span>{post.data.title}</span>
                     <span>{getMonthAndDay(post.data.pubDate)}</span>

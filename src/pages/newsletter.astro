@@ -6,7 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allNewsletters = await getCollection("newsletters");
 
 const newslettersSortedByDate = allNewsletters.sort(
-  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
 const newslettersByYear = newslettersSortedByDate.reduce(
@@ -16,7 +16,7 @@ const newslettersByYear = newslettersSortedByDate.reduce(
     groupednewss[year]!.push(newsletter);
     return groupednewss;
   },
-  {} as Record<number, CollectionEntry<"newsletters">[]>,
+  {} as Record<number, CollectionEntry<"newsletters">[]>
 );
 ---
 
@@ -37,7 +37,7 @@ const newslettersByYear = newslettersSortedByDate.reduce(
                   <hr class="m-0 first:hidden" />
                   <a
                     href={`/newsletters/${newsletter.id}/`}
-                    class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
+                    class="not-prose flex justify-between gap-4 py-2 opacity-75 hover:opacity-100 transition-all"
                   >
                     <span>{newsletter.data.title}</span>
                     <span>{getMonthAndDay(newsletter.data.pubDate)}</span>

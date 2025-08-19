@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { getFullDate } from "../../utils/date";
 const allPosts = await getCollection("posts");
 const postSortedByDate = allPosts.sort(
-  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 const recentPosts = postSortedByDate.slice(0, 3);
 ---
@@ -17,7 +17,7 @@ const recentPosts = postSortedByDate.slice(0, 3);
           <hr class="m-0 first:hidden" />
           <a
             href={`/blog/${post.id}/`}
-            class="not-prose flex justify-between gap-4 py-2 opacity-50 hover:opacity-100 transition-all"
+            class="not-prose flex justify-between gap-4 py-2 opacity-75 hover:opacity-100 transition-all"
           >
             <span>{post.data.title}</span>
             <span>{getFullDate(post.data.pubDate)}</span>

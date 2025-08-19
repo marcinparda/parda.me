@@ -13,9 +13,9 @@ export default {
           css: {
             color: theme("colors.gray.800"),
             a: {
-              color: theme("colors.blue.500"),
+              color: theme("colors.blue.600"),
               "&:hover": {
-                color: `${theme("colors.blue.600")} !important`,
+                color: `${theme("colors.blue.700")} !important`,
               },
               code: { color: theme("colors.primary.400") },
             },
