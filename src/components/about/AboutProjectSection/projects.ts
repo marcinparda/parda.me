@@ -5,35 +5,26 @@ export interface Project {
   codeUrl: string;
 }
 
-export const FINISHED_PROJECTS: Project[] = [
+export const PROJECTS: Project[] = [
   {
-    name: "My previous blog",
+    name: "Cockpit (working on adding test user)",
     description:
-      "My previous digital garden. It was built with Next.js and was quite similar to this one.",
-    liveUrl: "https://marcinparda.vercel.app/",
-    codeUrl: "https://github.com/MarcinParda/marcinparda-blog",
+      "NX monorepo for my frontend cockpit project apps. Cockpit project is several apps helping boosting my productivy or life quality in general. Managing budget, helping with newsletters etc. ",
+    liveUrl: "https://cockpit.parda.me/",
+    codeUrl: "https://github.com/marcinparda/cockpit-app",
+  },
+  {
+    name: "Cockpit API",
+    description:
+      "FastAPI backend for cockpit projects. It is meant to be refactored to microservices in the future.",
+    liveUrl: "https://api.parda.me/api/docs",
+    codeUrl: "https://github.com/marcinparda/cockpit-api",
   },
   {
     name: "parda.me",
     description:
-      "Page that you are currently on. It's built with Astro and TailwindCSS.",
+      "My technical blog. Page that you are currently on ☺️ It's built with Astro and TailwindCSS.",
     liveUrl: "https://parda.me/",
     codeUrl: "https://github.com/MarcinParda/parda.me",
   },
-  {
-    name: "Firebase superchat",
-    description:
-      "Chat where all the users can talk to each other. It's possible to login with Google account.",
-    liveUrl: "https://superchat-cc2d4.web.app/",
-    codeUrl: "https://github.com/MarcinParda/firebase-superchat",
-  },
-];
-
-export const WIP_PROJECTS: Project[] = [
-  {
-    name: "IT flashcards",
-    description:
-      "Flashcards Anki-like app for IT people. It's powered with AI and built with Nx, Nest.js & Next.js.",
-    codeUrl: "https://github.com/MarcinParda/it-flashcards",
-  },
-];
+] as const;
