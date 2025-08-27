@@ -4,11 +4,12 @@ pubDate: 2025-09-01
 tags: [react, UI libraries, styling, maintainability]
 ---
 
-We've all been there - you're integrating a UI library like Material-UI or Ant Design with your custom styling solution like Tailwind CSS, and the components don't quite match your design. The quickest fix seems to be slapping some margin classes directly onto the library component. But this approach creates technical debt that will bite you later.
+We've all been there - you're integrating a UI library like Material-UI or Ant Design with your custom styling solution like Tailwind CSS, and the components don't quite match your design. The quickest fix seems to be slapping some margin classes directly onto the library component.
+While this often works in the short term, it introduces hidden complexity that can negatively affect maintainability and flexibility later.
 
 ## Problem
 
-Let's say you're working with Material-UI and Tailwind CSS. You need to add some spacing to a MUI Button to match your design:
+Suppose you want to slightly adjust the spacing of a Material-UI Button when styled with Tailwind CSS:
 
 ```tsx
 import { Button } from "@mui/material";
@@ -18,7 +19,7 @@ const UserInfoForm = () => {
     <form>
       <input type="email" placeholder="Email" />
       <input type="text" placeholder="Username" />
-      {/* Quick fix: add margin-top directly to MUI Button */}
+      {/* Quick fix: margin-top applied directly */}
       <Button className="mt-4" variant="contained" type="submit">
         Save
       </Button>
@@ -27,28 +28,42 @@ const UserInfoForm = () => {
 };
 ```
 
-This works fine initially. But now imagine you want to reuse this form in different layouts with different spacing requirements. The `UserInfoForm` will be heavily reused across your app:
+This looks fine initially. However, problems arise when the component is reused in different contexts:
 
 ```tsx
 const UserProfile = () => {
   return (
     <div className="profile-container">
-      {/* UserInfoForm with its baked-in mt-4 margin */}
+      {/* UserInfoForm enforces its own margin */}
       <UserInfoForm />
-      {/* CarInfoForm needs has default spacing and spacing is inconsistent */}
+      {/* CarInfoForm has different spacing logic */}
       <CarInfoForm />
     </div>
   );
 };
 ```
 
-What can you do? Add a prop to conditionally remove the class? Its better to write maintainable code instead. Let's start with understanding why this approach is wrong.
+The margin is now “baked in,” making it difficult to adapt the component across varied layouts without adding extra conditional props, which clutters the component API.
 
-## Styling external components is in general wrong
+This tight coupling of external components and layout introduces **maintenance overhead**: replacing MUI with another library, applying different design systems, or creating reusable form patterns becomes unnecessarily complex.
 
-Library owners design their components to be as reusable as possible across different projects and use cases. When you inject custom classes or styles directly into library components, you're working against their intended design philosophy.
+### Why direct styling of library components causes problems
 
-The better solution is wrapping the component in a container element:
+External UI libraries are designed with clear boundaries:
+
+- **Internal styling (appearance):** colors, typography, borders, hover or focus states - these belong to the component implementation and can often be customized with themes or style overrides.
+- **Layout (positioning in its parent container):** margins, alignment, and spacing rules - not intrinsic to the component, but determined by the context in which it is used.
+
+When we blur these boundaries by applying layout styles directly to library components, two issues arise:
+
+1. **Reduced reusability and flexibility** – The component cannot adapt easily across different containers or layout systems.
+2. **Increased maintenance overhead** – Future changes (switching libraries, refactoring layout systems, redesigns) require untangling layout rules embedded deep in component instances.
+
+Put differently, it’s not just “technical debt that will bite you later” - it increases complexity every time you need to use the component in a new context.
+
+## Solution
+
+Instead of styling the library button directly, wrap it in a container responsible for spacing:
 
 ```tsx
 import { Button } from "@mui/material";
@@ -58,7 +73,7 @@ const UserInfoForm = () => {
     <form>
       <input type="email" placeholder="Email" />
       <input type="text" placeholder="Username" />
-      {/* Wrap in div to control layout */}
+      {/* Properly isolating layout */}
       <div className="mt-4">
         <Button variant="contained" type="submit">
           Save
@@ -69,17 +84,15 @@ const UserInfoForm = () => {
 };
 ```
 
-This approach offers several key advantages:
+### Advantages:
 
-1. **Separation of concerns**: Layout logic stays separate from the component's internal styling.
+1. **Separation of concerns** – Layout and appearance are clearly decoupled.
+2. **Predictable replacement** – If you switch from MUI Button to another one, the surrounding layout wrapper still ensures consistent spacing.
+3. **Scalability** – Buttons can be reused in multiple forms or sections without carrying layout assumptions.
 
-2. **Component boundaries**: The button maintains its original design while the wrapper controls layout. If you replace the MUI Button with a different library's button, it will display in the exact same position.
+### When to use theming or `styleOverrides`
 
-3. **Easy portability**: You can copy this button to other components without worrying about removing layout-specific classes.
-
-## What to do if you need to style external components?
-
-Before modifying external components directly, check if the library provides theming capabilities. Most mature UI libraries offer theme providers for global customization:
+For appearance-level customization (e.g., border radius, text casing, colors), prefer the library’s **theming system**:
 
 ```tsx
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -89,24 +102,18 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: "none", // Remove uppercase
-          borderRadius: "8px", // Custom border radius
+          textTransform: "none",
+          borderRadius: "8px",
         },
       },
     },
   },
 });
-
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <YourApp />
-  </ThemeProvider>
-);
 ```
 
-You can have multiple ThemeProviders if needed, with child providers extending parent themes.
+This allows you to control visual identity globally without leaking layout rules into the component.
 
-But what if theming doesn't solve your problem? For instance, you have a dropdown where the select options need bigger padding than the theme provides. In this case, create a custom wrapper component:
+For specific use cases (e.g., a custom `Select` with larger padding), consider **wrapper components** that extend the base API while encapsulating additional styles.
 
 ```tsx
 import { Select, MenuItem } from "@mui/material";
@@ -119,7 +126,7 @@ const SelectBigPadding = ({ children, ...props }) => {
   );
 };
 
-// Use it exactly like the original MUI Select
+// Usage:
 const UserSettingsForm = () => {
   return (
     <SelectBigPadding value={selectedOption} onChange={handleChange}>
@@ -130,60 +137,74 @@ const UserSettingsForm = () => {
 };
 ```
 
-This way you get the benefit of customization while keeping the original component's API intact.
+### The nuance: padding vs margins
 
-## Padding over margins
+In the spacing debate, padding tends to be more predictable because it avoids **margin collapse**. In CSS, if two adjacent elements both have vertical margins, the browser doesn’t add them together - instead, the larger of the two margins is applied. This often produces surprises when stacking components.
 
-BTW. When adjusting spacing, I prefer and recommend using padding instead of margins. Padding keeps the component's layout intact and avoids collapsing margin issues. Sometimes you have two elements with padding/margins next to each other. If both have margins, they collapse into one margin. For me it is more predictable to use paddings which always add up.
+Padding, on the other hand, is included inside the component’s box, so two padded elements always stack consistently.
 
-## Solution
+However, there is an important distinction:
 
-Here's how our user info form looks with proper layout separation:
+- **Padding** is internal spacing - it pushes content inward inside a component’s boundary.
+- **Margin** is external spacing - it defines how the component relates to neighboring elements.
 
-**Before:**
+Best practice:
 
-```tsx
-const UserInfoForm = () => {
-  return (
-    <form>
-      <input type="email" placeholder="Email" />
-      <input type="text" placeholder="Username" />
-      <Button className="mt-4" variant="contained" type="submit">
-        Save
-      </Button>
-    </form>
-  );
-};
-```
+- Use **padding** for internal consistency and predictable stacking.
+- Use **margins sparingly** when you truly need spacing external to the component (for example, vertical rhythm in a container).
 
-**After:**
+### Before vs After
+
+**Before (with margin in the component):**
 
 ```tsx
-const UserInfoForm = () => {
-  return (
-    <form>
-      <input type="email" placeholder="Email" />
-      <input type="text" placeholder="Username" />
-      <div className="mt-4">
-        <Button variant="contained" type="submit">
-          Save
-        </Button>
-      </div>
-    </form>
-  );
-};
+<Button className="mt-4" variant="contained" type="submit">
+  Save
+</Button>
 ```
 
-This approach prepares better layout boundaries for external elements. The button remains pure and reusable, while layout concerns are handled by the wrapper.
+**After (with wrapper handling layout):**
+
+```tsx
+<div className="mt-4">
+  <Button variant="contained" type="submit">
+    Save
+  </Button>
+</div>
+```
+
+This small change significantly improves flexibility and maintainability.
 
 ## Summary
 
-Avoid adding layout styles directly to external library components. Use wrapper elements to control spacing and positioning instead. This maintains component boundaries, improves reusability, and prevents tight coupling between layout and component logic.
+- Avoid adding **layout styles (e.g., margins, positioning)** directly to external library components.
+- Keep **layout external** (with wrappers, containers), and **appearance internal** (via theming, overrides).
+- Padding is often safer than margins thanks to margin collapse rules, but both have their place: use padding for inner spacing, margin when external spacing is unavoidable.
 
 That's all. I hope you enjoyed this article. Thanks for reading!
 
 **Here's an addon for you.** Brief summary of an article. You can use it to create fiches cards (e.g. in Anki).
 
-**Front:** How should you handle layout styling for external library components?
+**Flashcard 1**  
+**Front:** How should you handle layout styling for external library components?  
+**Back:** Never add layout styles (margins, positioning) directly to library components. Keep layout external (via wrappers/containers) while using theming or overrides for internal styling.
 
-**Back:** Never add layout styles (margins, positioning) directly to library components. Instead, wrap them in container elements (div, section) that handle layout concerns. This preserves component boundaries, improves reusability, and prevents coupling between layout and component logic.
+**Flashcard 2**  
+**Front:** What’s the difference between layout and appearance in UI components?  
+**Back:** Layout determines how a component is positioned in its container (margins, alignment), while appearance controls the component’s visual details (colors, borders, typography).
+
+**Flashcard 3**
+**Front:** Why is styling external components directly with margins problematic?  
+**Back:** It couples layout with the component, reducing reusability, making redesigns harder, and increasing maintenance overhead.
+
+**Flashcard 4**  
+**Front:** What is CSS margin collapse?  
+**Back:** When two vertical margins meet, they don’t add together; instead, the larger one is applied. This can cause unpredictable spacing issues.
+
+**Flashcard 5**
+**Front:** Why is padding often safer than margin for consistent spacing?  
+**Back:** Padding is internal, so values always add up predictably and don’t collapse like margins.
+
+**Flashcard 6**  
+**Front:** How can you extend external library components with additional styles safely?  
+**Back:** Wrap them in custom wrapper components that preserve the original API but apply customized appearance rules (e.g., `SelectBigPadding`).
