@@ -146,11 +146,6 @@ Same test, two names, and both are written by people who know what they are doin
 
 ![A horizontal "zoom out" scale with three steps from left to right. Step 1: a single small gear with a tiny second gear touching it, labelled "Unit". Step 2: a gear connected to a database cylinder by a thick line, labelled "Integration". Step 3: a whole browser window connected to a server and a database, with a tiny person icon in front, labelled "E2E". Each step is bigger than the previous one. An arrow under the whole row labelled "more real, slower, more confidence" pointing right.](./images/testing-01-test-map.png)
 
-```mermaid
-flowchart LR
-  U["Unit<br/>solitary or sociable"] --- I["Integration<br/>narrow or broad"] --- E["E2E<br/>whole system, like a user"]
-```
-
 Read it as a scale of "how much runs", not as a flow. The more runs, the more the test costs. Only e2e covers the whole path the user takes, from the page down to the database.
 
 ### Unit test
